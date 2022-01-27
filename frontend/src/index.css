@@ -6,6 +6,16 @@ h3{
   padding: 1rem 0;
 }
 
+h1{
+  font-size: 1.8 rem;
+  padding: 00.1rem 0;
+}
+h2{
+  font-size: 1.4 rem;
+  padding: 00.5 rem 0;
+}
+
+
 .rating span{
   margin: 0.1rem; 
 }

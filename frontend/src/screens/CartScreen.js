@@ -17,7 +17,6 @@ import { useLocation, useNavigate, useParams } from 'react-router';
 
 const CartScreen = (props) => {
   const { id } = useParams();
-  //   console.log(useParams);
   const productId = id;
   let location = useLocation();
   const qty = location.search ? Number(location.search.split('=')[1]) : 1;
@@ -26,6 +25,8 @@ const CartScreen = (props) => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   console.log(cart);
+
+  
 
   useEffect(() => {
     if (productId) {
@@ -38,8 +39,19 @@ const CartScreen = (props) => {
   };
 
   const navigate = useNavigate();
+
+  //i added this to instead of navigate('login?/redirect=shipping')
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   const checkoutHandler = () => {
-    navigate('/login?redirect=shipping');
+    if (!userInfo) {
+      navigate('/login');
+    }else{
+    navigate('/shipping');
+    }
+    // navigate('/login?redirect=shipping')
+
   };
   //   const [searchParams] = useSearchParams();
   //   console.log(searchParams);

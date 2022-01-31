@@ -5,9 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
-import { useLocation, useNavigate } from 'react-router';
-
-
+import { useNavigate } from 'react-router';
 
 const ProfileScreen = () => {
   const [name, setName] = useState('');
@@ -16,9 +14,9 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
 
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  // const redirect = location.search ? location.search.split('=')[1] : '/';
 
   const dispatch = useDispatch();
 
@@ -36,7 +34,7 @@ const ProfileScreen = () => {
       navigate('/login');
     } else {
       if (!user.name) {
-        dispatch(getUserDetails('profile')); //gets the profile of logged in user, not user id okay
+        dispatch(getUserDetails('profile')); //gets the profile of logged in user, not user id
       } else {
         setName(user.name);
         setEmail(user.email);
@@ -61,7 +59,9 @@ const ProfileScreen = () => {
         <h2>User Profile</h2>
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
-        {success && <Message variant='success'>Profile Updated Successfully</Message>}
+        {success && (
+          <Message variant='success'>Profile Updated Successfully</Message>
+        )}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='name'>

@@ -44,15 +44,13 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
-    res
-      .status(201)
-      .json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        isAdmin: user.isAdmin,
-        token: generateToken(user._id),
-      });
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user._id),
+    });
   } else {
     res.status(400);
     throw new Error('Invalid User Data');
@@ -79,19 +77,18 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-
 //@desc Update user profile
 //@routes PUT /api/user/profile
 //@access Private
 
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-//logged in user
+  //logged in user
   if (user) {
-    user.name = req.body.name || user.name
-    user.email = req.body.email || user.email
-    if(req.body.password){
-      user.password = req.body.password
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    if (req.body.password) {
+      user.password = req.body.password;
     }
     const updatedUser = await user.save();
     res.json({
@@ -107,4 +104,4 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, getUserProfile,registerUser,updateUserProfile  };
+export { authUser, getUserProfile, registerUser, updateUserProfile };

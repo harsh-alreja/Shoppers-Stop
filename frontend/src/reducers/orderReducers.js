@@ -44,6 +44,7 @@ export const orderDetailsReducer = (
   switch (action.type) {
     case ORDER_DETAILS_REQUEST:
       return {
+        ...state,
         loading: true,
       };
     case ORDER_DETAILS_SUCCESS:

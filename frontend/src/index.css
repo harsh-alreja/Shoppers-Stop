@@ -1,33 +1,40 @@
-main{
+main {
   min-height: 80vh;
 }
 
-h3{
+h3 {
   padding: 1rem 0;
 }
 
-h1{
+h1 {
   font-size: 1.8 rem;
   padding: 00.1rem 0;
 }
-h2{
+h2 {
   font-size: 1.4 rem;
   padding: 00.5 rem 0;
 }
 
-
-.rating span{
-  margin: 0.1rem; 
+.rating span {
+  margin: 0.1rem;
 }
 
 #no_underline {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.buttonBg{
-  background-color: white;
+.buttonBg {
+  background-color: whitesmoke;
 }
 
-.button3{
-  background-color:turquoise;
+.button3 {
+  background-color: darkslategrey;
+  border: whitesmoke;
+  color: white;
+}
+.formLabel {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding: 20px;
+  display: inline-block;
 }

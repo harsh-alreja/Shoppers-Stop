@@ -3,6 +3,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/userActions';
+// import { Route, Routes } from 'react-router-dom';
+import SearchBox from './SearchBox';
 // if you wanna call action we use useDispatch()
 //if we wanna bring something in from state, its useSelector()
 
@@ -29,6 +31,8 @@ const Header = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
 
           <Navbar.Collapse id='basic-navbar-nav'>
+            <SearchBox />
+
             <Nav className='ms-auto'>
               <LinkContainer to='/cart'>
                 <Nav.Link>

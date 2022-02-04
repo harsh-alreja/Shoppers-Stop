@@ -39,7 +39,7 @@ Rating.defaultProps = {
 }
 Rating.propTypes={
     value:PropTypes.number,
-    text:PropTypes.string.isRequired,
+    text:PropTypes.string,
     color:PropTypes.string,
 }
 // so we could check the props correctness

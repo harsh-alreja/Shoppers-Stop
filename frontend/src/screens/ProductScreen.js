@@ -49,7 +49,6 @@ const ProductScreen = (props) => {
 
   const { id } = useParams();
 
-  // let history = useHistory();
   const navigate = useNavigate();
 
   const addToCartHandler = () => {
@@ -80,7 +79,6 @@ const ProductScreen = (props) => {
 
   return (
     <>
-    
       <Link className='btn my-3 btn-outline-primary' to='/'>
         <i class='fas fa-chevron-left'></i>{' '}
       </Link>
@@ -100,7 +98,7 @@ const ProductScreen = (props) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-        <Meta title={product.name}/>
+          <Meta title={product.name} />
           <Row style={{ marginBottom: 20 }}>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />

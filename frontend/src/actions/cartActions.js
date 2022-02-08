@@ -4,6 +4,8 @@ import {
   CART_DELETE_ITEM,
   CART_SAVE_PAYMENT_METHOD,
   CART_SAVE_SHIPPING_ADDRESS,
+  WISHLIST_ADD_ITEM,
+  WISHLIST_DELETE_ITEM,
 } from '../constants/cartConstants';
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
@@ -49,3 +51,31 @@ export const savePaymentMethod = (data) => async(dispatch) => {
     });
     localStorage.setItem('paymentMethod', JSON.stringify(data));
 }
+
+
+
+export const addToWishList = (id) => async (dispatch, getState) => {
+  console.log('action Added To WishList');
+  const { data } = await axios.get(`/api/products/${id}`);
+
+  dispatch({
+    type: WISHLIST_ADD_ITEM,
+    payload: {
+      product: data._id,
+      name: data.name,
+      image: data.image,
+      price: data.price,
+      countInStock: data.countInStock,
+    },
+  });
+
+  localStorage.setItem('wishListItems', JSON.stringify(getState().cart.wishListItems));
+};
+
+export const removeFromWishList = (id) => async (dispatch, getState) => {
+  dispatch({
+    type: WISHLIST_DELETE_ITEM,
+    payload: id,
+  });
+  localStorage.setItem('wishListItems', JSON.stringify(getState().cart.wishListItems));
+};

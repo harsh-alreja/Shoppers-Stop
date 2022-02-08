@@ -36,9 +36,10 @@ const reducer = combineReducers({
   productCreate: productCreateReducer,
   productUpdate: productUpdateReducer,
   productReviewCreate: productReviewCreateReducer,
-  productTopRated:productTopRatedReducer,
+  productTopRated: productTopRatedReducer,
 
   cart: cartReducer,
+  // wishList: wishListReducer,
 
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -68,10 +69,15 @@ const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
   ? JSON.parse(localStorage.getItem('shippingAddress'))
   : {};
 
+const wishListItemsFromStorage = localStorage.getItem('wishListItems')
+  ? JSON.parse(localStorage.getItem('wishListItems'))
+  : [];
+
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage,
     shippingAddress: shippingAddressFromStorage,
+    wishListItems: wishListItemsFromStorage,
   },
   userLogin: { userInfo: userInfoFromStorage },
 };

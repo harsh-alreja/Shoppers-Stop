@@ -6,6 +6,7 @@ const Loader = () => {
     <Spinner
       animation='border'
       role='status'
+      variant='success'
       style={{
         width: '100px',
         hieght: '100px',
@@ -13,8 +14,19 @@ const Loader = () => {
         display: 'block',
       }}
     >
-        <span className='sr-only'>Loading...</span>
+      <span className='sr-only'>Loading...</span>
     </Spinner>
+
+    //   <Button variant="primary" disabled>
+    //   <Spinner
+    //     as="span"
+    //     animation="border"
+    //     size="sm"
+    //     role="status"
+    //     aria-hidden="true"
+    //   />
+    //   <span className="visually-hidden">Loading...</span>
+    // </Button>
   );
 };
 

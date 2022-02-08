@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/userActions';
 // import { Route, Routes } from 'react-router-dom';
 import SearchBox from './SearchBox';
+// import { Navigate } from 'react-router';
 // if you wanna call action we use useDispatch()
 //if we wanna bring something in from state, its useSelector()
 
@@ -22,10 +23,10 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect style={{marginRight:'2px'}}>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Mercury's ShopStop</Navbar.Brand>
+            <Navbar.Brand className='ms-auto'>Mercury's ShopStop</Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -46,9 +47,11 @@ const Header = () => {
                   <LinkContainer to='/profile'>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>
-                    Logout
-                  </NavDropdown.Item>
+                  <LinkContainer to='/login'>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      Logout
+                    </NavDropdown.Item>
+                  </LinkContainer>
                 </NavDropdown>
               ) : (
                 <LinkContainer to='/Login'>
